@@ -1,0 +1,5 @@
+geecode-sublime-plugin:
+
+初始功能：
+1、选中内容查找例子
+2、智能提示

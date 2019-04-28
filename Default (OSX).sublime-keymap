@@ -1,0 +1,12 @@
+[
+    { 
+        "keys": ["ctrl+command+x"], "command": "find_example"
+    },
+    { 
+        "keys": ["ctrl+command+s"], "command": "smart_code"
+    }
+    // ,
+    // { 
+    //     "keys": ["ctrl+command+l"], "command": "load_key_words"
+    // }
+]

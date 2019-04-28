@@ -1,0 +1,6 @@
+[
+	{ "caption": "-" },
+	{"caption": "Find Example","command": "find_example" },
+	{"caption": "Smart Code", "command": "smart_code"},
+	{ "caption": "-", "id": "end" }
+]
