@@ -1,3 +1,5 @@
+
+KEYWORDS = '''
 ABC
 ABCMeta
 ACCEPTED
@@ -35103,3 +35105,4 @@ zope.interface.implements
 zope.interface.providedBy
 zope.interface.provider
 zscore
+'''

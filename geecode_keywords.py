@@ -8,6 +8,8 @@ import argparse
 import json
 import sys
 import os
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import local_keywords
 
 
 def __collect_name(name_stack, names):
@@ -97,12 +99,16 @@ def scan_keywords(code_string, keyword_set):
 
 
 def getScanKeyWords(code_string):
-    BASE_DIR = os.path.dirname(__file__) #获取当前文件夹的绝对路径
-    path = os.path.join(BASE_DIR, 'keywords.txt')
+    print("getScanKeyWords -----")
+    # BASE_DIR = os.path.dirname(__file__) #获取当前文件夹的绝对路径
+    # path = os.path.join(BASE_DIR, 'kesywords.txt')
+    # path='keywords.txt'
+    # path = KEYWORDS
+    # print("getScanKeyWords = ",local_keywords.KEYWORDS)
     # def get_file(path):
     #     return open(path, 'r')
-    args = open(path, 'r')
-    keywords = args.read().splitlines()
+    # args = open(path, 'r')
+    keywords = local_keywords.KEYWORDS.splitlines()
     keywords.sort()
     # print("code_string = " + code_string)
     results = scan_keywords(code_string, keywords)

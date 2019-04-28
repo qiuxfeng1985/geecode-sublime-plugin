@@ -128,7 +128,7 @@ def find_similar(similarity_threshold, code_list, limit):
     return result
 
 def getSimilarExample(code_list):
-        print("getSimilarExample ------ ")
+        # print("getSimilarExample ------ ")
         similarity_threshold = 0.0
         limit = 1
         examples = find_similar(similarity_threshold, code_list, limit)

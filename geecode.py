@@ -13,10 +13,8 @@ import geecode_similar
 
 def Get(url):
     with request.urlopen(url) as f:
-                print(url)
                 data = f.read()
                 # if data is N
-                print("type = ",type(data))
                 try:
                     ret = data.decode('utf-8')
                 except UnicodeDecodeError:
@@ -27,7 +25,6 @@ def Post(url,data):
     # data1 = {'spam':1,'eggs':2,'bacon':0}
     headers = {'content-type': 'application/json'}
     ret = requests.post(url, data = json.dumps(data), headers = headers)
-    # print(ret)
     return json.loads(ret.text)
 
 def formatPopup(content):
@@ -56,10 +53,9 @@ class FindExampleCommand(sublime_plugin.TextCommand):
                 examlpeArray = json.loads(ret, encoding='utf-8')
                 index = 0
                 exampleLength = len(examlpeArray)
-                print('exampleLength = ',exampleLength)
+                # print('exampleLength = ',exampleLength)
                 if exampleLength > 0 :
-                    for examlpe in examlpeArray:
-                        print("index = ",index)  
+                    for examlpe in examlpeArray: 
                         temp = str(index+1)
                         showCode = showCode +'''<H2>Example '''+temp + '''</H2><p></p><p></p>'''+examlpe["code"]+'''\n<br>''' 
                         index=index+1
@@ -77,11 +73,11 @@ class FindExampleCommand(sublime_plugin.TextCommand):
 class SmartCodeCommand(sublime_plugin.TextCommand):
     def run(self, edit):
             view = self.view
-            print(time.time()," ---- insert -----")
+            print(time.time()," ---- Smart Code -----")
             code_string = view.substr(sublime.Region(0, view.size()))
             # print("code_string = " + code_string)
             keywords = geecode_keywords.getScanKeyWords(code_string)
-            # print(time.time(),"step2",json.dumps(keywords))
+            print(time.time(),"step2 ",json.dumps(keywords))
             findExamples = Post("http://geecall.com/clientapi/SearchSimilar",keywords)
             tempLen = len(findExamples)//2
             findExamples = findExamples[0:tempLen]
